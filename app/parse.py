@@ -1,9 +1,6 @@
 from dataclasses import dataclass
-from urllib.parse import urljoin
 
-
-BASE_URL = "https://webscraper.io/"
-HOME_URL = urljoin(BASE_URL, "test-sites/e-commerce/more/")
+from app.parse_class import ParseClass
 
 
 @dataclass
@@ -15,8 +12,20 @@ class Product:
     num_of_reviews: int
 
 
+pages = [
+    None,
+    "computers",
+    "phones",
+    "phones/touch",
+    "computers/tablets",
+    "computers/laptops"
+]
+
+
 def get_all_products() -> None:
-    pass
+    for page in pages:
+        device = ParseClass(page)
+        device.parse_processing()
 
 
 if __name__ == "__main__":
