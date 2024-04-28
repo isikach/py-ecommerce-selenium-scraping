@@ -1,19 +1,9 @@
-from dataclasses import dataclass
+from tqdm import tqdm
 
 from app.parse_class import ParseClass
 
-
-@dataclass
-class Product:
-    title: str
-    description: str
-    price: float
-    rating: int
-    num_of_reviews: int
-
-
 pages = [
-    None,
+    "",
     "computers",
     "phones",
     "phones/touch",
@@ -23,7 +13,7 @@ pages = [
 
 
 def get_all_products() -> None:
-    for page in pages:
+    for page in tqdm(pages):
         device = ParseClass(page)
         device.parse_processing()
 

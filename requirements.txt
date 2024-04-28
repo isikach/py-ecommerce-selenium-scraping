@@ -9,3 +9,5 @@ selenium~=4.19.0
 
 requests~=2.31.0
 beautifulsoup4~=4.12.3
+
+tqdm~=4.66.2

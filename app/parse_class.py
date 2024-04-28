@@ -1,14 +1,22 @@
 import csv
+from dataclasses import dataclass
 from typing import List
+from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 
-from app.parse import Product
+
+@dataclass
+class Product:
+    title: str
+    description: str
+    price: float
+    rating: int
+    num_of_reviews: int
 
 
 class ParseClass:
